@@ -7,6 +7,9 @@ RUN rm /bin/sh \
 
 RUN apt-get update && apt-get install -y \
 	libqglviewer-dev \
+	freeglut3 freeglut3-dev \
+	libceres-dev \
+	libsuitesparse-dev \
 	&& rm -rf /var/lib/apt/lists
 
 RUN source /ros_entrypoint.sh \
