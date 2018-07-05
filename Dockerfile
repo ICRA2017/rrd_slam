@@ -1,4 +1,4 @@
-FROM ros:kinetic-perception
+FROM ros:indigo-perception
 
 RUN git clone https://github.com/ICRA2017/rrd_slam.git
 
@@ -11,6 +11,13 @@ RUN apt-get update && apt-get install -y \
 	libceres-dev \
 	libsuitesparse-dev \
 	libeigen3-dev \
+	software-properties-common \
+	&& rm -rf /var/lib/apt/lists
+
+RUN add-apt-repository ppa:george-edison55/cmake-3.x \
+	&& apt-get update && apt-get install -y \
+	cmake \
+	qtbase5-dev \
 	&& rm -rf /var/lib/apt/lists
 
 RUN git clone https://github.com/RainerKuemmerle/g2o.git \
